@@ -59,15 +59,19 @@ function submitFormulario(e) {
 }
 
 function mostrarAlerta(msg) {
-  const divMensaje = document.createElement('div');
-  divMensaje.classList.add('error');
+  const existeError = document.querySelector('.error');
 
-  // Mensaje de error
-  divMensaje.textContent = msg;
+  if (!existeError) {
+    const divMensaje = document.createElement('div');
+    divMensaje.classList.add('error');
 
-  formulario.appendChild(divMensaje);
+    // Mensaje de error
+    divMensaje.textContent = msg;
 
-  setTimeout(() => {
-    divMensaje.remove();
-  }, 3000);
+    formulario.appendChild(divMensaje);
+
+    setTimeout(() => {
+      divMensaje.remove();
+    }, 3000);
+  }
 }
